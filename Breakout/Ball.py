@@ -5,9 +5,10 @@ class Ball():
     def __init__(self, screen):
         super().__init__()
         self.screen = screen
-        self.image = pygame.image.load("Ball.png")
+        #self.image = pygame.image.load("Ball.png")
+        #self.__rect = self.image.get_rect()
 
-        self.__rect = self.image.get_rect()
+        self.__rect = pygame.Rect((0,0),(20, 20))
 
         self.radius = self.__rect.width//2
 
@@ -49,4 +50,5 @@ class Ball():
         self.__rect = self.__rect.move(self.dx, self.dy)
 
     def draw(self):
-        self.screen.blit(self.image, self.__rect)
+        pygame.draw.circle(self.screen, Color.red, (self.__rect.x + self.radius, self.__rect.y + self.radius), self.radius)
+        #self.screen.blit(self.image, self.__rect)
