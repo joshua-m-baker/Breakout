@@ -1,5 +1,5 @@
 from GameBoard import GameBoard
 import Color
 
-g = GameBoard(Color.black)
+g = GameBoard("background3.png")
 g.mainLoop()

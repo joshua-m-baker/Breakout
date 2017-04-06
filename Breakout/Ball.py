@@ -1,26 +1,26 @@
 import pygame
 import Color
 
-class Ball():
-    def __init__(self, screen):
+class Ball(pygame.sprite.Sprite):
+    def __init__(self):
         super().__init__()
-        self.screen = screen
-        #self.image = pygame.image.load("Ball.png")
-        #self.__rect = self.image.get_rect()
+        #self.screen = screen
+        self.image = pygame.image.load("ball1.png")
+        self.mask = pygame.mask.from_surface(self.image)
 
-        self.__rect = pygame.Rect((0,0),(20, 20))
+        self.rect = pygame.Rect((0,0),(20, 20))
 
-        self.radius = self.__rect.width//2
+        self.radius = self.rect.width//2
 
-        self.__rect.x = 0
-        self.__rect.y = 0
+        self.rect.x = 0
+        self.rect.y = 0
 
         self.dx = 4
         self.dy = -4
 
     def setPos(self, x, y):
-        self.__rect.x = x
-        self.__rect.y = y
+        self.rect.x = x
+        self.rect.y = y
 
     def swapXDir(self):
         self.dx = self.dx * -1
@@ -32,23 +32,23 @@ class Ball():
         return self.radius
 
     def getLeft(self):
-        return self.__rect.left
+        return self.rect.left
 
     def getRight(self):
-        return self.__rect.right
+        return self.rect.right
 
     def getTop(self):
-        return self.__rect.top
+        return self.rect.top
 
     def getBottom(self):
-        return self.__rect.bottom
+        return self.rect.bottom
 
     def getRect(self):
-        return self.__rect
+        return self.rect
 
     def move(self):
-        self.__rect = self.__rect.move(self.dx, self.dy)
+        self.rect = self.rect.move(self.dx, self.dy)
 
-    def draw(self):
-        pygame.draw.circle(self.screen, Color.red, (self.__rect.x + self.radius, self.__rect.y + self.radius), self.radius)
-        #self.screen.blit(self.image, self.__rect)
+    #def draw(self):
+        #pygame.draw.circle(self.screen, Color.red, (self.rect.x + self.radius, self.rect.y + self.radius), self.radius)
+        #self.screen.blit(self.image, self.rect)

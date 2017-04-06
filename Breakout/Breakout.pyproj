@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f2463e1e-3312-4258-8652-886b153b266f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Breakout.py</StartupFile>
+    <StartupFile>GameBoard.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,10 +28,16 @@
     </Compile>
     <Compile Include="Breakout.py" />
     <Compile Include="Color.py" />
+    <Compile Include="OldGameBoard.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GameBoard.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Paddle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="textLabel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tile.py">
