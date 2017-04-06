@@ -74,7 +74,7 @@ class GameBoard(AbstractGui):
             for j in range(self.numTiles):
                 tile = Tile(x, y)
                 self.tiles.add(tile)
-                self.assets.add(tile)
+                #self.assets.add(tile)
                 x += tile.rect.width + self.tileSpacer
 
             x = self.tileSpacer//2
@@ -88,7 +88,10 @@ class GameBoard(AbstractGui):
     def drawBoard(self):
         #Redraw the background to clear off the old stuff
         self.drawBackground()
+
+        #Draw the new assets
         self.assets.draw(self.screen)
+        self.tiles.draw(self.screen)
 
         pygame.display.flip()
 
@@ -146,6 +149,7 @@ class GameBoard(AbstractGui):
                     self.ball.kill()
                     self.newBall()
                     self.tiles.empty()
+                    
                     if self.numRows <= 6:
                         self.numRows += 1
                     self.makeTiles()
@@ -173,7 +177,7 @@ class GameBoard(AbstractGui):
                    
                     if (pt != None):
                         pass
-                        #print(pt)
+                        
                         
                     #If it hits on the left, send it to the left
                     #if it hits the right, send it to the right
@@ -188,11 +192,16 @@ class GameBoard(AbstractGui):
                             #if it hits a side edge, swap the x direction
                             #otherwise it hit the top or bottom so swap the y direction
                             if 2 < pt[1] < 18:
-                                #print("hit edge")
                                 self.ball.swapXDir()
+
                             else:
                                 self.ball.swapYDir()
+
+                            #i.remove(self.assets, self.tiles)
                             i.kill()
+                            #print(self.tiles)
+                            #print(self.assets)
+                            
                             #i.hit()
                         
                     
